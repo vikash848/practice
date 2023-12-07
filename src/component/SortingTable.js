@@ -47,15 +47,19 @@ const SortingTable = () => {
         setData(data.sort((a,b)=>{
           if(a[value] > b[value])
           {
-           // console.log(a[value] - b[value]);\
-           console.log(value!=prevValue ? 1:-1)
-            return (value!=prevValue ? 1:-1);
+           // console.log(a[value] - b[value]);
+           console.log(value!=prevValue ? 0:1)
+         //console.log(value!=prevValue ? 12:-12)
+        //   console.log(value +" + "+ prevValue)
+           return parseInt(value!=prevValue ? 1:-1)
            //return -1;
           }
           else{
-            console.log(value!=prevValue ? 1:-1)
-           return (value!=prevValue ? -1:1);
-          //return 1;
+          //console.log(value!=prevValue ? -12:12)
+         //console.log(value +" - "+ prevValue)
+         console.log(value!=prevValue ? 0:1)
+         return parseInt(value!=prevValue ? -1:1)
+         //return 1;
           }
             //return a["name"] - b["name"];
         }));
