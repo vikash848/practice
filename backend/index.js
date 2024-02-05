@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const multer = require("multer");
+
 var cors = require("cors");
 const db = require("../backend/database/db");
 var fun = require("./func");
@@ -9,12 +9,6 @@ var fun = require("./func");
 require('dotenv').config()
 const stripe=require('stripe')(process.env.REACT_APP_STRIPE_SECRET_KEY);
 const { v4: uuidv4 } = require('uuid');
-// const fileStorageEngine=multer.diskStorage({
-//     destination:(req,file,cb)=>{
-//         cb(null,'./images')
-//     }
-//     filename:
-// })
 
 
 const storeItem=new Map([
@@ -22,26 +16,35 @@ const storeItem=new Map([
   [2,{price:200,name:"shocks"}]
 ])
 
-db.connect((err) => {
-  if (err) console.log("falied to connect to databse");
-  console.log("connected to database");
-});
+app.listen(5000,async()=>{
+  try{
+    await db;
+    console.log("app listening on port 5000")
+  }catch(err){
+   console.log("server error"+err);
+  }
+    
+})
 
 app.use(cors());
 
+
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/timeline", require("./routes/timeline"));
+app.use("/api/file", require("./routes/file"));
 
-app.listen(5000, () => {
-  console.log("listening on port 5000");
-});
+// app.listen(5000, () => {
+//   console.log("listening on port 5000");
+// });
 
 app.get("/photo", (req, res) => {
   res.send("hellllllllo");
 });
 
 app.post("/upload", (req, res) => {
+  console.log(req.body)
   res.send(req.body);
 });
 app.get("/getdata", (req, res) => {

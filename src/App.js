@@ -18,6 +18,8 @@ import IdleTimerPage from "./component/IdleTimerPage";
 import { BrowserRouter, Routes,Route } from "react-router-dom";
 import Home from "./component/Home";
 import SortingTable from "./component/SortingTable";
+import Uploadcsv from "./component/Uploadcsv";
+import Uploadcsvfile from "./component/Uploadcsvfile";
 
 function App() {
   // const onLoginSuccess=(res)=>{
@@ -47,6 +49,9 @@ function App() {
     <Route exact path="/dynamictable" element={<DynamicTable/>}/>
     <Route exact path="/sortingtable" element={<SortingTable/>}/>
     <Route exact path="/" element={<Home/>}/>
+    <Route exact path="/uploadcsv" element={<Uploadcsv/>}/>
+    <Route exact path="/previewimage" element={<PreviewImage/>}/>
+    <Route exact path="/uploadcsvfile" element={<Uploadcsvfile/>}/>
   </Routes>
   </BrowserRouter>
   );

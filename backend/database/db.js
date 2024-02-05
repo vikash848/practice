@@ -1,11 +1,12 @@
-var mysql = require("mysql");
+var mysql = require("mysql2/promise");
 
-var db = mysql.createConnection({
+
+var db = mysql.createPool({
   host: "localhost",
   user: "root",
   password: "admin",
-  database: "database2",
-});
+  database: "elearning",
+})
 
 
 module.exports =  db ;
