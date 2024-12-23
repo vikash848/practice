@@ -35,6 +35,7 @@ import { useState } from "react";
 const Throttle = () => {
 
   const [text,setText]=useState("");
+  const [message,setMessage]=useState("")
   const ref=useRef();
   const handleChange=(e)=>{
    setText(e.target.value)
@@ -62,7 +63,8 @@ const Throttle = () => {
     setText(e.target.value);
     if(!ref.current){
     ref.current=setTimeout(()=>{
-      console.log("Api Call"+e.target.value)
+      console.log("Api Call"+e.target.value);
+      setMessage(e.target.value);
       ref.current=undefined;
     },3000)
     }
@@ -84,6 +86,7 @@ const Throttle = () => {
     <div>
       <h2>Throttle</h2>
       <input type="text" value={text} onChange={handleChange2}/>
+      <div>{message}</div>
     </div>
   );
 };
