@@ -86,7 +86,7 @@ const Throttle = () => {
     <div>
       <h2>Throttle</h2>
       <input type="text" value={text} onChange={handleChange2}/>
-      <div>{message}</div>
+      <div>API {message}</div>
     </div>
   );
 };
