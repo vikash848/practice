@@ -50,12 +50,44 @@ const Throttle = () => {
   }
 
   }
+
+
+
+
+
+
+
+
+  const handleChange2=(e)=>{
+    setText(e.target.value);
+    if(!ref.current){
+    ref.current=setTimeout(()=>{
+      console.log("Api Call"+e.target.value)
+      ref.current=undefined;
+    },3000)
+    }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <div>
       <h2>Throttle</h2>
-      <input type="text" value={text} onChange={handleChange}/>
+      <input type="text" value={text} onChange={handleChange2}/>
     </div>
   );
 };
 
 export default Throttle;
+
+

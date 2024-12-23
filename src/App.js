@@ -20,6 +20,8 @@ import Home from "./component/Home";
 import SortingTable from "./component/SortingTable";
 import Uploadcsv from "./component/Uploadcsv";
 import Uploadcsvfile from "./component/Uploadcsvfile";
+import Page from "./component/Page";
+import PracticeTable from "./component/PracticeTable";
 
 function App() {
   // const onLoginSuccess=(res)=>{
@@ -52,6 +54,10 @@ function App() {
     <Route exact path="/uploadcsv" element={<Uploadcsv/>}/>
     <Route exact path="/previewimage" element={<PreviewImage/>}/>
     <Route exact path="/uploadcsvfile" element={<Uploadcsvfile/>}/>
+    <Route exact path="/debouncing" element={<Debouncing/>}/>
+    <Route exact path="/throttling" element={<Throttle/>}/>
+    <Route exact path="/page" element={<Page/>}/>
+    <Route exact path="/practicetable" element={<PracticeTable/>}/>
   </Routes>
   </BrowserRouter>
   );
